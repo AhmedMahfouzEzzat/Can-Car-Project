@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# AvrStudio Solution File, Format Version 11.00
+Project("{D1100916-62DA-4D80-A9B4-55A1E7CCEEB3}") = "Can Car Project_Node2", "Can Car Project_Node2\Can Car Project_Node2.avrgccproj", "{E32D5B3C-7F54-4F9E-8107-A5A7A43D09EC}"
+EndProject
+Project("{D1100916-62DA-4D80-A9B4-55A1E7CCEEB3}") = "Can Car Project_Node1", "Can Car Project_Node1\Can Car Project_Node1.avrgccproj", "{FC4952AE-CAC2-4F3A-9793-5CC4B0D53F76}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E32D5B3C-7F54-4F9E-8107-A5A7A43D09EC}.Debug|AVR.ActiveCfg = Debug|AVR
+		{E32D5B3C-7F54-4F9E-8107-A5A7A43D09EC}.Debug|AVR.Build.0 = Debug|AVR
+		{E32D5B3C-7F54-4F9E-8107-A5A7A43D09EC}.Release|AVR.ActiveCfg = Release|AVR
+		{E32D5B3C-7F54-4F9E-8107-A5A7A43D09EC}.Release|AVR.Build.0 = Release|AVR
+		{FC4952AE-CAC2-4F3A-9793-5CC4B0D53F76}.Debug|AVR.ActiveCfg = Debug|AVR
+		{FC4952AE-CAC2-4F3A-9793-5CC4B0D53F76}.Debug|AVR.Build.0 = Debug|AVR
+		{FC4952AE-CAC2-4F3A-9793-5CC4B0D53F76}.Release|AVR.ActiveCfg = Release|AVR
+		{FC4952AE-CAC2-4F3A-9793-5CC4B0D53F76}.Release|AVR.Build.0 = Release|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
