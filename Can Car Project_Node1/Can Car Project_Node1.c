@@ -6,7 +6,7 @@
  */ 
 
 #include <avr/io.h>
-#include "mcp2515.h"
+#include "AVR_CAN.h"
 
 int main(void)
 {
