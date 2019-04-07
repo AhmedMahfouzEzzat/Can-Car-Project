@@ -7,6 +7,7 @@
 
 #include <avr/io.h>
 #include "AVR_CAN.h"
+#include "LCD.h"
 
 int main(void)
 {

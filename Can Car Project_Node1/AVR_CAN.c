@@ -7,7 +7,7 @@
 #include "AVR_CAN.h"
 
 unsigned char * msgReceived = 0;
-unsigned char rbuffer[2][14];  /* 2 RX buffers, each have 14B */
+unsigned char rbuffer[14];  /* 2 RX buffers, each have 14B */
 
 /**
  * Read value of the register on selected address inside the
@@ -73,9 +73,7 @@ unsigned char setBitTiming(unsigned char rCNF1, unsigned char rCNF2, unsigned ch
  * or filter, doesn't matter
  * \param criterion message identifier criterion to be set
  * \param is_ext 1 if message is extended, otherwise 0 */
-void setAcceptanceCriteria (unsigned char address,
- unsigned long criterion,
- unsigned char is_ext)
+void setAcceptanceCriteria (unsigned char address,unsigned long criterion,unsigned char is_ext)
 {
 	 /* Initialize reading of the receive buffer */
 	 spiMasterChipSelect(1);
@@ -157,15 +155,13 @@ void sendCANmsg(unsigned char bi,unsigned long id,unsigned char * data,unsigned 
 
 void interruptMCP2515(void)
 {
- /* get receive buffer index (we don't consider that both buffer contain
- message, this situation in our environment cannot happen – message is
- directly copied from the buffer and released in this very IRQ ) */
- unsigned char bi = getRXState() >> 6;
- /* Copy the message from the device and release buffer */
- spiMasterTRANSMIT(READ_INSTRUCTION);
- spiMasterTRANSMIT(RXBnCTRL(bi));
- /* Make the local copy */
- for(unsigned char i; i < 14; i++)
- rbuffer[bi][i] = spiMasterTRANSMIT(0);
- msgReceived = &rbuffer[bi];
+	 
+	 /* Copy the message from the device and release buffer */
+	 spiMasterTRANSMIT(READ_INSTRUCTION);
+	 spiMasterTRANSMIT(RXBnCTRL(0));
+	 /* Make the local copy */
+	 for(unsigned char i=0; i < 14; i++)
+	 rbuffer[i] = spiMasterTRANSMIT(0);
+	 
+	msgReceived  = rbuffer;
 }

@@ -83,7 +83,7 @@ void extInterruptINIT(void (*handler)(void))
 	 EIMSK |= (1 << INT0);
 }
 /* System interrupt handler */
-SIGNAL(INT0_vect)
+ISR(INT0_vect)
 {
 	int_handler();
 }
