@@ -44,7 +44,8 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../Can\ Car\ Project_Node2.c
+../Can\ Car\ Project_Node2.c \
+../LCD.c
 
 
 PREPROCESSING_SRCS += 
@@ -54,19 +55,23 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-Can\ Car\ Project_Node2.o
+Can\ Car\ Project_Node2.o \
+LCD.o
 
 
 OBJS_AS_ARGS +=  \
-"Can Car Project_Node2.o"
+"Can Car Project_Node2.o" \
+LCD.o
 
 
 C_DEPS +=  \
-Can\ Car\ Project_Node2.d
+Can\ Car\ Project_Node2.d \
+LCD.d
 
 
 C_DEPS_AS_ARGS +=  \
-"Can Car Project_Node2.d"
+"Can Car Project_Node2.d" \
+LCD.d
 
 
 OUTPUT_FILE_PATH +=Can\ Car\ Project_Node2.elf
@@ -100,6 +105,12 @@ OUTPUT_FILE_DEP:= ./makedep.mk
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler
 	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"Can Car Project_Node2.d" -MQ"$(@:Can Car Project_Node2.o=Can Car Project_Node2.d)" -o"$@" "$<"
+	@echo Finished building: $<
+
+./LCD.o: .././LCD.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"$(@:LCD.o=LCD.d)" -MT"$(@:LCD.o=LCD.d)" -o"$@" "$<"
 	@echo Finished building: $<
 
 

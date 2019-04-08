@@ -44,7 +44,11 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../Can\ Car\ Project_Node1.c
+../ADC.c \
+../AVR_CAN.c \
+../AVR_SPI.c \
+../Can\ Car\ Project_Node1.c \
+../Ultrasonic.c
 
 
 PREPROCESSING_SRCS += 
@@ -54,19 +58,35 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-Can\ Car\ Project_Node1.o
+ADC.o \
+AVR_CAN.o \
+AVR_SPI.o \
+Can\ Car\ Project_Node1.o \
+Ultrasonic.o
 
 
 OBJS_AS_ARGS +=  \
-"Can Car Project_Node1.o"
+ADC.o \
+AVR_CAN.o \
+AVR_SPI.o \
+"Can Car Project_Node1.o" \
+Ultrasonic.o
 
 
 C_DEPS +=  \
-Can\ Car\ Project_Node1.d
+ADC.d \
+AVR_CAN.d \
+AVR_SPI.d \
+Can\ Car\ Project_Node1.d \
+Ultrasonic.d
 
 
 C_DEPS_AS_ARGS +=  \
-"Can Car Project_Node1.d"
+ADC.d \
+AVR_CAN.d \
+AVR_SPI.d \
+"Can Car Project_Node1.d" \
+Ultrasonic.d
 
 
 OUTPUT_FILE_PATH +=Can\ Car\ Project_Node1.elf
@@ -96,10 +116,34 @@ ADDITIONAL_DEPENDENCIES:= $(HEX_FLASH_FILE_PATH) $(LSS_FILE_PATH) $(HEX_EEPROM_F
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 # AVR/GNU C Compiler
+./ADC.o: .././ADC.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"$(@:ADC.o=ADC.d)" -MT"$(@:ADC.o=ADC.d)" -o"$@" "$<"
+	@echo Finished building: $<
+
+./AVR_CAN.o: .././AVR_CAN.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"$(@:AVR_CAN.o=AVR_CAN.d)" -MT"$(@:AVR_CAN.o=AVR_CAN.d)" -o"$@" "$<"
+	@echo Finished building: $<
+
+./AVR_SPI.o: .././AVR_SPI.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"$(@:AVR_SPI.o=AVR_SPI.d)" -MT"$(@:AVR_SPI.o=AVR_SPI.d)" -o"$@" "$<"
+	@echo Finished building: $<
+
 ./Can\ Car\ Project_Node1.o: .././Can\ Car\ Project_Node1.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler
 	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"Can Car Project_Node1.d" -MQ"$(@:Can Car Project_Node1.o=Can Car Project_Node1.d)" -o"$@" "$<"
+	@echo Finished building: $<
+
+./Ultrasonic.o: .././Ultrasonic.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"$(@:Ultrasonic.o=Ultrasonic.d)" -MT"$(@:Ultrasonic.o=Ultrasonic.d)" -o"$@" "$<"
 	@echo Finished building: $<
 
 

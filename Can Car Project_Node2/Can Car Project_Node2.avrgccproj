@@ -64,7 +64,10 @@
     <Compile Include="Can Car Project_Node2.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="mcp2515.h">
+    <Compile Include="LCD.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

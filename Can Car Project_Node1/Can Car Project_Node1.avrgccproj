@@ -85,6 +85,12 @@
     <Compile Include="mcp2515.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Ultrasonic.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Ultrasonic.h">
+      <SubType>compile</SubType>
+    </Compile>
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\AvrGCC.targets" />
 </Project>
