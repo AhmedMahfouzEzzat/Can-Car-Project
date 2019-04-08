@@ -10,10 +10,10 @@
 #include <util/delay.h>
 #include "LCD.h"
 
-#define LCD_Dir DDRB			/* Define LCD data port direction */
-#define LCD_Port PORTB			/* Define LCD data port */
-#define RS PB0				/* Define Register Select pin */
-#define EN PB1 				/* Define Enable signal pin */
+#define LCD_Dir DDRC			/* Define LCD data port direction */
+#define LCD_Port PORTC			/* Define LCD data port */
+#define RS PC0				/* Define Register Select pin */
+#define EN PC1 				/* Define Enable signal pin */
 
 void LCD_Command( unsigned char cmnd )
 {
