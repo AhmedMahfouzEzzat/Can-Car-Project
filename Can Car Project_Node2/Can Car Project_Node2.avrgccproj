@@ -61,10 +61,34 @@
     <GenerateEepFile>True</GenerateEepFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="AVR_CAN.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="AVR_CAN.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="AVR_SPI.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="AVR_SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Can Car Project_Node2.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="LCD.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="LCD.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="mcp2515.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="PWM.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="PWM.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

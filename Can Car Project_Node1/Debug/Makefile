@@ -44,6 +44,9 @@ SUBDIRS :=
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
+../ADC.c \
+../AVR_CAN.c \
+../AVR_SPI.c \
 ../Can\ Car\ Project_Node1.c
 
 
@@ -54,18 +57,30 @@ ASM_SRCS +=
 
 
 OBJS +=  \
+ADC.o \
+AVR_CAN.o \
+AVR_SPI.o \
 Can\ Car\ Project_Node1.o
 
 
 OBJS_AS_ARGS +=  \
+ADC.o \
+AVR_CAN.o \
+AVR_SPI.o \
 "Can Car Project_Node1.o"
 
 
 C_DEPS +=  \
+ADC.d \
+AVR_CAN.d \
+AVR_SPI.d \
 Can\ Car\ Project_Node1.d
 
 
 C_DEPS_AS_ARGS +=  \
+ADC.d \
+AVR_CAN.d \
+AVR_SPI.d \
 "Can Car Project_Node1.d"
 
 
@@ -96,6 +111,24 @@ ADDITIONAL_DEPENDENCIES:= $(HEX_FLASH_FILE_PATH) $(LSS_FILE_PATH) $(HEX_EEPROM_F
 OUTPUT_FILE_DEP:= ./makedep.mk
 
 # AVR/GNU C Compiler
+./ADC.o: .././ADC.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"$(@:ADC.o=ADC.d)" -MT"$(@:ADC.o=ADC.d)" -o"$@" "$<"
+	@echo Finished building: $<
+
+./AVR_CAN.o: .././AVR_CAN.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"$(@:AVR_CAN.o=AVR_CAN.d)" -MT"$(@:AVR_CAN.o=AVR_CAN.d)" -o"$@" "$<"
+	@echo Finished building: $<
+
+./AVR_SPI.o: .././AVR_SPI.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler
+	$(QUOTE)$(AVR_APP_PATH)avr-gcc.exe$(QUOTE) -funsigned-char -funsigned-bitfields -O0 -fpack-struct -fshort-enums -g2 -Wall -c -std=gnu99  -mmcu=atmega328p   -MD -MP -MF"$(@:AVR_SPI.o=AVR_SPI.d)" -MT"$(@:AVR_SPI.o=AVR_SPI.d)" -o"$@" "$<"
+	@echo Finished building: $<
+
 ./Can\ Car\ Project_Node1.o: .././Can\ Car\ Project_Node1.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler
