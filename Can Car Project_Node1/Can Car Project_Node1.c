@@ -12,6 +12,12 @@ uint16_t ADC_Value;
 int ADC_DigitalValue;
 char buffer[10];
 
+//Button SetUp Using Interrupt
+DDRD |= 0x02; 
+EIMSK =(1<<INT0);
+EICRA = 0x02;
+sei();
+
 INIT_ADC();
 LCD_Init ();
 LCD_Clear();
@@ -48,6 +54,11 @@ else
 
     }
   }
+}
+
+ISR(INT0_vect){
+	
+	// SEND CAN MSG
 }
 
 	
