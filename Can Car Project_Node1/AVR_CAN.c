@@ -6,9 +6,9 @@
  */ 
 #include "AVR_CAN.h"
 
+
 unsigned char * msgReceived = 0;
 unsigned char rbuffer[14];  /* 2 RX buffers, each have 14B */
-
 /**
  * Read value of the register on selected address inside the
  * MCP2515. Works for every register.
@@ -147,10 +147,11 @@ void sendCANmsg(unsigned char bi,unsigned long id,unsigned char * data,unsigned 
 	/* Store the message into the buffer */
 	 for(unsigned char i = 0; i < (prop & 0x0F); i++)
 	 spiMasterTRANSMIT(data[i]);
+	 /* Send request to send */
+	 sendRTS(bi);
 	/* Release the bus */
 	 spiMasterChipSelect(0);
-	/* Send request to send */
-	 sendRTS(bi);
+	
 }
 
 void interruptMCP2515(void)
@@ -162,6 +163,5 @@ void interruptMCP2515(void)
 	 /* Make the local copy */
 	 for(unsigned char i=0; i < 14; i++)
 	 rbuffer[i] = spiMasterTRANSMIT(0);
-	 
-	msgReceived  = rbuffer;
+	 msgReceived  = rbuffer;
 }

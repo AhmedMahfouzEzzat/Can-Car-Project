@@ -12,11 +12,12 @@
 #include "mcp2515.h"
 #include "AVR_SPI.h"
 
+unsigned char * msgReceived;
 
-unsigned char * msgReceived = 0;
-unsigned char rbuffer[14];  /* 2 RX buffers, each have 14B */
 #define changeBits(reg_data , bit_mask , new_value) writeRegister( reg_data, ((readRegister(reg_data) & (~ bit_mask))| (new_value))) 
-		
+#define sendRTS(bi) {spiMasterTRANSMIT(WRITE_INSTRUCTION);\
+					 spiMasterTRANSMIT(RTS_INSTRUCTION);\
+					 spiMasterTRANSMIT(TXBnCTRL(bi));}	
 #define getMode (readRegister(CANSTAT) >> 5)
 #define setMode(mode) { changeBits(CANCTRL, (7 << REQOP0), \
  (mode << REQOP0)); while(getMode != mode); }

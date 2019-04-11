@@ -5,6 +5,7 @@
  *  Author: Hussam
  */ 
 #include <avr/io.h>
+#include "PWM.h"
 /*
 D0,D1 pwm0 direction -> output on D6
 D4,D7 pwm1 direction -> output on D7

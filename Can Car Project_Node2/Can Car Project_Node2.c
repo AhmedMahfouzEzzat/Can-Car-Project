@@ -18,7 +18,7 @@ D5 OC0B PWM
 D6 OC0A PWM
 
 */
-
+#define F_CPU 16000000UL
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "AVR_CAN.h"

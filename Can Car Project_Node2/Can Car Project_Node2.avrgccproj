@@ -3,7 +3,7 @@
   <PropertyGroup>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>5.0</ProjectVersion>
-    <ProjectGuid>{fc4952ae-cac2-4f3a-9793-5cc4b0d53f76}</ProjectGuid>
+    <ProjectGuid>{e32d5b3c-7f54-4f9e-8107-a5a7a43d09ec}</ProjectGuid>
     <avrdevice>ATmega328P</avrdevice>
     <avrdeviceseries>none</avrdeviceseries>
     <OutputType>Executable</OutputType>
@@ -18,9 +18,9 @@
     <GlobalToolchainPath>C:\Program Files (x86)\Atmel\AVR Studio 5.0\AVR ToolChain\bin</GlobalToolchainPath>
     <AvrGccProjectExtensions>
     </AvrGccProjectExtensions>
-    <AssemblyName>Can Car Project</AssemblyName>
-    <Name>Can Car Project_Node1</Name>
-    <RootNamespace>Can Car Project</RootNamespace>
+    <AssemblyName>Can Car Project_Node2</AssemblyName>
+    <Name>Can Car Project_Node2</Name>
+    <RootNamespace>Can Car Project_Node2</RootNamespace>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -61,12 +61,6 @@
     <GenerateEepFile>True</GenerateEepFile>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ADC.c">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="ADC.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="AVR_CAN.c">
       <SubType>compile</SubType>
     </Compile>
@@ -79,16 +73,22 @@
     <Compile Include="AVR_SPI.h">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="Can Car Project_Node1.c">
+    <Compile Include="Can Car Project_Node2.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="hc-sr04.c">
+    <Compile Include="LCD.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="hc-sr04.h">
+    <Compile Include="LCD.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="mcp2515.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="PWM.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="PWM.h">
       <SubType>compile</SubType>
     </Compile>
   </ItemGroup>

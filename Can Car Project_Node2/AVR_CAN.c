@@ -6,7 +6,8 @@
  */ 
 #include "AVR_CAN.h"
 
-
+unsigned char * msgReceived = 0;  
+unsigned char rbuffer[14];  /* 2 RX buffers, each have 14B */
 /**
  * Read value of the register on selected address inside the
  * MCP2515. Works for every register.

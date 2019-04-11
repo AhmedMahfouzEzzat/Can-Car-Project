@@ -12,6 +12,7 @@
 #include "mcp2515.h"
 #include "AVR_SPI.h"
 
+
 #define changeBits(reg_data , bit_mask , new_value) writeRegister( reg_data, ((readRegister(reg_data) & (~ bit_mask))| (new_value))) 
 
 #define sendRTS(bi) {spiMasterTRANSMIT(WRITE_INSTRUCTION);\
@@ -26,9 +27,10 @@
 #define setMask(n, c, e) setAcceptanceCriteria(RXMnSIDH(n), c, e)
 #define setFilter(n, c, e) setAcceptanceCriteria(RXFnSIDH(n), c, e)
 
-#define getData(n) msgReceived[6+i];
+#define getData(i) msgReceived[6+i];
 #define getId (unsigned short)((msgReceived[1]<<3)|(msgReceived[2]>>5));
 #define getLength msgReceived[5] >> 4;
+
 
 unsigned char readRegister(unsigned char address);
 

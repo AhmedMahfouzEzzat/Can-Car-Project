@@ -24,7 +24,8 @@ void spiMasterINIT()
 	 PORT_SPI |= (1 << PIN_SS);
 	/* Enable SPI, Master, set clock rate fck/4, mode 0,0 */
 	 SPCR = (1<<SPE) | (1<<MSTR);
-	 SPSR = (1<<SPI2X);
+	// SPSR = (1<<SPI2X);
+	SPSR = 0X00;
 }
 /* \brief Transmiting databytes via the SPI
  *

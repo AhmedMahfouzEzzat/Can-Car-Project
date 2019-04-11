@@ -6,9 +6,10 @@
  */ 
 
 #define F_CPU 16000000UL
+#include "LCD.h"
 #include <avr/io.h>
 #include <util/delay.h>
-#include "LCD.h"
+
 
 #define LCD_Dir DDRC			/* Define LCD data port direction */
 #define LCD_Port PORTC			/* Define LCD data port */
