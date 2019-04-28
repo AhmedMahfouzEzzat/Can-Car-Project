@@ -24,15 +24,15 @@ D6 OC0A PWM
 #include "AVR_CAN.h"
 #include "LCD.h"
 #include "PWM.h"
-
+unsigned char isON = 0;
 
 int main(void)
 {
-	unsigned char isON = 1;
+	DDRD|=0x01;
+	
 	unsigned char dutyCycle0 = 255;
 	unsigned char dutyCycle1 = 255;
-	unsigned char i = 0;
-	long id = 0 ;
+	unsigned char id = 0 ;
 	initMCP2515();
 	LCD_Init();
 	PWM_start();
@@ -46,8 +46,7 @@ int main(void)
 		if(msgReceived) 
 		{
 			LCD_Clear();
-			id = ((unsigned char)(getId<<8));
-			id += (unsigned char)getId;
+			id = (unsigned char)getId;
 			if(id == 0x05) //Ultra sonic id
 			{
 				LCD_Clear();
@@ -67,12 +66,11 @@ int main(void)
 				LCD_String("TempVal:");
 				
 				LCD_String_xy(1,0," ");
-				for(i=0; i<getLength; i++)
+				for(int i=0; i<getLength; i++)
 				{	
 					LCD_Char(getData(i));
 				}	
-				PWM0_setDutyCycle(0);
-				PWM1_setDutyCycle(0);
+				PORTD|=0x01;
 			}
 			else if(id == 0x07) //Button id
 			{
